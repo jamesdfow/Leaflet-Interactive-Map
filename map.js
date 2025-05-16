@@ -1,28 +1,33 @@
-var map = L.map('map').setView([39.735, -104.949], 13);
+var map = L.map('map').setView([39.735, -104.949], 11);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-var marker = L.marker([39.7435, -105.0132]).addTo(map);
+var marker = L.marker([39.64, -104.86]).addTo(map);
 
-var circle = L.circle([39.762, -104.994], {
+var circle = L.circle([39.86, -104.68], {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.3,
-    radius: 300
+    radius: 5000
 }).addTo(map);
 
 var polygon = L.polygon([
-    [39.744, -104.96],
-    [39.744, -104.941],
-    [39.755, -104.95]
+    [39.553824, -105.064316],
+    [39.528407, -105.118561],
+    [39.513576, -105.03273],
+    [39.536881, -105.043716],
+    
+
 ]).addTo(map);
 
-marker.bindPopup("This is where the <b>Denver Broncos</b> play")
-circle.bindPopup("The park Avenue West Viaduct Exchange").openPopup();;
-polygon.bindPopup("City Park and Golf Course");
+
+
+marker.bindPopup("Cherry Creek Reservoir");
+circle.bindPopup("Denver International Airport Airspace");
+polygon.bindPopup("Chatfield State Park");
 
 function onMapClick(e) {
     alert("You clicked the map at " + e.latlng);
@@ -38,4 +43,5 @@ function onMapClick(e) {
 }
 
 map.on('click', onMapClick);
+
 
